@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Pioneers - 20 Great Minds</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .scientist-card {
+            transition: transform 0.3s ease;
+        }
+        .scientist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .password-modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+        }
+        .password-content {
+            background-color: #1a202c;
+            margin: 15% auto;
+            padding: 30px;
+            border-radius: 8px;
+            width: 350px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: modalFadeIn 0.3s;
+        }
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Password Protection Modal -->
+    <div id="passwordModal" class="password-modal">
+        <div class="password-content text-white">
+            <h2 class="text-2xl font-bold mb-4">Enter Password</h2>
+            <p class="mb-6">This page is protected. Please enter the password to continue:</p>
+            <input type="password" id="passwordInput" class="w-full px-4 py-2 rounded-md bg-gray-700 text-white mb-4" placeholder="Enter password">
+            <button onclick="checkPassword()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition duration-200">
+                Submit
+            </button>
+            <p id="errorMsg" class="text-red-400 mt-2 hidden">Incorrect password. Please try again.</p>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden by default) -->
+    <div id="mainContent" class="container mx-auto px-4 py-8 hidden">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">20 GREATEST SCIENTISTS </h1>
+            <p class="text-xl text-gray-600">Exploring the contributions of pioneering scientists who shaped our world</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Scientist 1 -->
+            <div class="scientist-card bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/95bf7384-03e7-4daa-af58-7361dee748e1.png" alt="Portrait of Albert Einstein with physics equations background" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Albert Einstein</h2>
+                    <p class="text-gray-600 mb-4">1879-1955</p>
+                    <p class="text-gray-700">Developed the theory of relativity, one of the two pillars of modern physics. Best known for mass-energy equivalence formula E=mc².</p>
+                </div>
+            </div>
+
+            <!-- Scientist 2 -->
+            <div class="scientist-card bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8c76f1c5-0918-44f8-a607-da95ab23c4cc.png" alt="Portrait of Marie Curie in her laboratory" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Marie Curie</h2>
+                    <p class="text-gray-600 mb-4">1867-1934</p>
+                    <p class="text-gray-700">Conducted pioneering research on radioactivity. First woman to win a Nobel Prize and the only person to win Nobel Prizes in two different sciences.</p>
+                </div>
+            </div>
+
+            <!-- Scientist 3 -->
+            <div class="scientist-card bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d6b6ab00-ee6b-4bd2-83e3-274c34f16ba3.png" alt="Portrait of Isaac Newton with physics concepts" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Isaac Newton</h2>
+                    <p class="text-gray-600 mb-4">1643-1727</p>
+                    <p class="text-gray-700">Formulated the laws of motion and universal gravitation. Developed calculus independently of Leibniz. Made crucial contributions to optics.</p>
+                </div>
+            </div>
+
+            <!-- Scientist 4 -->
+            <div class="scientist-card bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/77dae560-ed64-4857-a14d-4996f4b01d93.png" alt="Portrait of Charles Darwin with evolutionary concepts" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Charles Darwin</h2>
+                    <p class="text-gray-600 mb-4">1809-1882</p>
+                    <p class="text-gray-700">Proposed the theory of evolution by natural selection. His work established evolutionary descent as the dominant scientific explanation of diversity in nature.</p>
+                </div>
+            </div>
+
+            <!-- Scientist 5 -->
+            <div class="scientist-card bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d87664f4-cc5a-4e44-be38-4addb8cbc739.png" alt="Portrait of Nikola Tesla with electrical concepts" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Nikola Tesla</h2>
+                    <p class="text-gray-600 mb-4">1856-1943</p>
+                    <p class="text-gray-700">Designed the alternating current (AC) electrical system. Made contributions to the invention of radio, transformers, and wireless technology.</p>
+                </div>
+            </div>
+
+            <!-- Scientist 6 -->
+            <div class="scientist-card bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f3214aae-280a-49d2-9f27-a2b0793c7f8b.png" alt="Galileo Galilei looking through a telescope at the night sky with drawings of celestial bodies around him" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Galileo Galilei</h2>
+                    <p class="text-gray-600 mb-4">1564-1642</p>
+                    <p class="text-gray-700">Father of modern observational astronomy. Improved the telescope and supported Copernican heliocentrism. Formulated the basic principle of relativity.</p>
+                </div>
+            </div>
+
+            <!-- Continuing with more scientists... (54 more would follow this pattern) -->
+            <!-- Scientist 7 -->
+            <div class="scientist-card bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4b90e4fa-6c67-4504-818d-51bc2101691c.png" alt="Alan Turing sitting at a desk with an early computer, surrounded by papers and mathematical diagrams" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Alan Turing</h2>
+                    <p class="text-gray-600 mb-4">1912-1954</p>
+                    <p class="text-gray-700">Father of theoretical computer science and artificial intelligence. Developed the Turing Machine concept and helped crack Nazi codes during WWII.</p>
+                </div>
+            </div>
+
+            <!-- Scientist 8 -->
+            <div class="scientist-card bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8243448e-c163-4d31-ab26-0931b868c935.png" alt="Rosalind Franklin examining X-ray crystallography images of DNA in her laboratory" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Rosalind Franklin</h2>
+                    <p class="text-gray-600 mb-4">1920-1958</p>
+                    <p class="text-gray-700">Made critical contributions to the understanding of DNA structure through X-ray crystallography. Her work provided key evidence for the double helix model.</p>
+                </div>
+            </div>
+
+            <!-- Continued with similar structure -->
+            <!-- Scientist 9 -->
+            <div class="scientist-card bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b8b61ec0-ab1d-4ad3-94cb-eec38a0907ba.png" alt="Stephen Hawking in his wheelchair with a futuristic background of stars and galaxies" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Stephen Hawking</h2>
+                    <p class="text-gray-600 mb-4">1942-2018</p>
+                    <p class="text-gray-700">Theoretical physicist who made fundamental contributions to cosmology, especially black hole theory. Author of 'A Brief History of Time'.</p>
+                </div>
+            </div>
+
+            <!-- Scientist 10 -->
+            <div class="scientist-card bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/83a7f1f7-2bf4-4e76-8a00-78ebddf171e4.png" alt="Marie Maynard Daly in a chemistry lab surrounded by beakers and scientific equipment" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Marie Maynard Daly</h2>
+                    <p class="text-gray-600 mb-4">1921-2003</p>
+                    <p class="text-gray-700">First African-American woman to earn a PhD in chemistry. Conducted important research on cholesterol, sugars, and protein synthesis.</p>
+                </div>
+            </div>
+
+            <!-- Scientist 11 -->
+            <div class="scientist-card bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f41322c7-176a-4b13-952f-1b80246c42ca.png" alt="Father of modern genetics with pea plants" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Gregor Mendel</h2>
+                    <p class="text-gray-600 mb-4">1822-1884</p>
+                    <p class="text-gray-700">Discovered fundamental laws of inheritance through pea plant experiments.</p>
+                </div>
+            </div>
+
+            <!-- Scientist 12 -->
+            <div class="scientist-card bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/56f99787-a1df-4854-ad83-5cad4c41fa8a.png" alt="X-ray crystallographer studying DNA" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Rosalind Franklin</h2>
+                    <p class="text-gray-600 mb-4">1920-1958</p>
+                    <p class="text-gray-700">Provided key evidence for DNA's double helix structure through X-ray diffraction.</p>
+                </div>
+            </div>
+
+            <!-- Scientist 13 -->
+            <div class="scientist-card bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/76314567-5333-431d-8b2e-b2f3d502bee7.png" alt="Co-discoverer of DNA structure" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">James Watson</h2>
+                    <p class="text-gray-600 mb-4">1928-Present</p>
+                    <p class="text-gray-700">Co-discovered DNA's double helix structure, revolutionizing molecular biology.</p>
+                </div>
+            </div>
+
+            <!-- Scientist 14 -->
+            <div class="scientist-card bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6aca4177-bb9d-4cd9-8eb2-f9b67e2e5d5e.png" alt="Co-discoverer of DNA structure" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Francis Crick</h2>
+                    <p class="text-gray-600 mb-4">1916-2004</p>
+                    <p class="text-gray-700">Co-discovered DNA's structure and formulated the central dogma of molecular biology.</p>
+                </div>
+            </div>
+
+            <!-- Scientist 15 -->
+            <div class="scientist-card bg-white rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f384bc6c-80d4-4cdd-9353-86b4495040ab.png" alt="Physics professor explaining quantum mechanics" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-2">Richard Feynman</h2>
+                    <p class="text-gray-600 mb-4">1918-1988</p>
+                    <p class="text-gray-700">Developed quantum electrodynamics and created Feynman diagrams.</p>  
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-16 text-center text-gray-600 py-6 border-t border-gray-200">
+            <p>CREATED BY EUGENE EDEM DAVOR
+            <p class="mt-2">CALL +233559465866</p> 
+      
+    </div>
+
+    <script>
+        // Password Protection Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Skip password if already authenticated
+            if(localStorage.getItem('authenticated') === 'true') {
+                document.getElementById('passwordModal').style.display = 'none';
+                document.getElementById('mainContent').classList.remove('hidden');
+            } else {
+                document.getElementById('passwordModal').style.display = 'block';
+            }
+        });
+
+        function checkPassword() {
+            const password = 'Eugene'; // The correct password
+            const input = document.getElementById('passwordInput').value;
+            const errorMsg = document.getElementById('errorMsg');
+
+            if(input === password) {
+                localStorage.setItem('authenticated', 'true');
+                document.getElementById('passwordModal').style.display = 'none';
+                document.getElementById('mainContent').classList.remove('hidden');
+            } else {
+                errorMsg.classList.remove('hidden');
+                setTimeout(() => {
+                    errorMsg.classList.add('hidden');
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>
